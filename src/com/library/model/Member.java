@@ -34,7 +34,8 @@ public class Member {
         return membershipType;
     }
 
-
-
-
+    @Override
+    public String toString() {
+        return new String("Member Details:\n"+"1.MemberId: "+memberId+"\n2.First Name: "+firstName+"\n3.Last Name: "+lastName+"\n4.Email: "+email+"\n5.Membership Type: "+membershipType);
+    }
 }
