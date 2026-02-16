@@ -55,6 +55,17 @@ public class Main {
                     }
                     break;
 
+                case 2:
+                    System.out.println("Enter your Member Id:");
+                    String id = sc.nextLine();
+                    Member resultId = service.findMemberById(id);
+                    if(resultId==null){
+                        System.out.println("Member Does not exist. Please register!");
+                    }
+                    else{
+                        System.out.println(resultId);
+                    }
+                    break;
                 case 3:
                     System.out.println("Thank you for coming!.");
                     return;
