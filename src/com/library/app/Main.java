@@ -47,7 +47,7 @@ public class Main {
                     Member result = service.registerMember(memberId,firstName,lastName,email,membershipType);
 
                     if(result!=null){
-                        System.out.println("Registration Successfull.\n");
+                        System.out.println("Registration Successful.\n");
                         System.out.println(result);
                     }
                     else {
