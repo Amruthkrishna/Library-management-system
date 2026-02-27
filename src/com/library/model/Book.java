@@ -43,4 +43,8 @@ public class Book {
     public BookStatus getBookStatus(){
         return bookStatus;
     }
+
+    public String toString(){
+        return "Book details:\n"+"BookId: "+bookId+"\nIsbn: "+isbn+"\nTitle: "+title+"\nAuthor of the book: "+author+"\nBook edition: "+edition+"\nBook category: "+category+"\nBook Status: "+bookStatus;
+    }
 }

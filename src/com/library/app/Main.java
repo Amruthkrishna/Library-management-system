@@ -1,6 +1,8 @@
 package com.library.app;
+import com.library.model.Book;
 import com.library.model.Member;
 import com.library.model.MembershipType;
+import com.library.repository.BookRepository;
 import com.library.repository.MemberRepository;
 import com.library.service.LibraryService;
 import java.util.Scanner;
@@ -11,15 +13,17 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         MemberRepository repo = new MemberRepository();
-        LibraryService service = new LibraryService(repo);
+        BookRepository bookRepo = new BookRepository();
+        LibraryService service = new LibraryService(repo,bookRepo);
 
         Scanner sc = new Scanner(System.in);
         System.out.println("========Library Management System========");
         while (true) {
             System.out.println("Enter your choice:");
             System.out.println("1.Register as new Member.");
-            System.out.println(("2.Find existing member."));
-            System.out.println("3.Exit");
+            System.out.println("2.Find existing member.");
+            System.out.println("3.Add book.");
+            System.out.println("4.Exit");
 
             int choice = sc.nextInt();
             sc.nextLine();
@@ -67,6 +71,28 @@ public class Main {
                     }
                     break;
                 case 3:
+                    System.out.println("Enter the BookId:");
+                    String bookId = sc.nextLine();
+                    System.out.println("Enter the isbn:");
+                    String isbn = sc.nextLine();
+                    System.out.println("Enter title:");
+                    String title = sc.nextLine();
+                    System.out.println("Enter author name:");
+                    String author = sc.nextLine();
+                    System.out.println("Enter the edition:");
+                    String edition = sc.nextLine();
+                    System.out.println("Enter category:");
+                    String category = sc.nextLine();
+                    Book bookResult = service.addBook(bookId,isbn,title,author,edition,category);
+                    if(bookResult!=null){
+                        System.out.println("Book successfully added.\n");
+                        System.out.println(bookResult);
+                    }
+                    else{
+                        System.out.println("Book already exist. Please try again!");
+                    }
+                    break;
+                case 4:
                     System.out.println("Thank you for coming!.");
                     return;
             }
