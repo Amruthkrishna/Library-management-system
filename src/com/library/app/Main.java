@@ -23,7 +23,9 @@ public class Main {
             System.out.println("1.Register as new Member.");
             System.out.println("2.Find existing member.");
             System.out.println("3.Add book.");
-            System.out.println("4.Exit");
+            System.out.println("4.Borrow Book.");
+            System.out.println("5.Return Book.");
+            System.out.println("6.Exit");
 
             int choice = sc.nextInt();
             sc.nextLine();
@@ -93,6 +95,19 @@ public class Main {
                     }
                     break;
                 case 4:
+                    System.out.println("Enter your MemberId: ");
+                    memberId = sc.nextLine();
+                    System.out.println("Enter the BookId: ");
+                    bookId = sc.nextLine();
+                    boolean borrowResult = service.borrow(memberId,bookId);
+                    if(borrowResult){
+                        System.out.println("Book has been issued. ThankYou!!");
+                    }
+                    else{
+                        System.out.print("Book has already been issued. Please choose another book.!");
+                    }
+                    break;
+                case 6:
                     System.out.println("Thank you for coming!.");
                     return;
             }

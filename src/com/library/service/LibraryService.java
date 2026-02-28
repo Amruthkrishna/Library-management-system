@@ -10,7 +10,6 @@ import com.library.repository.MemberRepository;
 public class LibraryService {
     private final MemberRepository memberRepo;
     private final BookRepository bookRepo;
-
     public LibraryService(MemberRepository repo,BookRepository bookRepo){
         this.memberRepo=repo;
         this.bookRepo=bookRepo;
@@ -45,4 +44,17 @@ public class LibraryService {
             return null;
         }
     }
+
+    public boolean borrow(String memberId,String bookId){
+            Book book = findBookById(bookId);
+            Member member = findMemberById(memberId);
+            if(member==null){
+                return false;
+            }
+            if(book==null){
+                return false;
+            }
+            return book.issue();
+    }
+
 }
