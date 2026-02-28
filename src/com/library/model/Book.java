@@ -52,8 +52,17 @@ public class Book {
             return false;
         }
     }
+    public boolean returnBook(){
+        if(bookStatus==BookStatus.ISSUED){
+            bookStatus=BookStatus.AVAILABLE;
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
 
     public String toString(){
-        return "Book details:\n"+"BookId: "+bookId+"\nIsbn: "+isbn+"\nTitle: "+title+"\nAuthor of the book: "+author+"\nBook edition: "+edition+"\nBook category: "+category+"\nBook Status: "+bookStatus;
+        return "Book details:\n"+"BookId: "+bookId+"\nisbn: "+isbn+"\nTitle: "+title+"\nAuthor of the book: "+author+"\nBook edition: "+edition+"\nBook category: "+category+"\nBook Status: "+bookStatus;
     }
 }

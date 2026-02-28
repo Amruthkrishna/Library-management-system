@@ -57,4 +57,17 @@ public class LibraryService {
             return book.issue();
     }
 
+    public boolean returnBook(String memberId,String bookId){
+        Book book = findBookById(bookId);
+        Member member = findMemberById(memberId);
+        if(member==null){
+            return false;
+        }
+        if(book==null){
+            return false;
+        }
+        return book.returnBook();
+    }
+
+
 }

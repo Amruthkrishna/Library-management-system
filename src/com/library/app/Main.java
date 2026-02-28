@@ -107,6 +107,19 @@ public class Main {
                         System.out.print("Book has already been issued. Please choose another book.!");
                     }
                     break;
+                case 5:
+                    System.out.println("Enter your MemberId: ");
+                    memberId = sc.nextLine();
+                    System.out.println("Enter the BookId: ");
+                    bookId = sc.nextLine();
+                    boolean returnResult = service.returnBook(memberId,bookId);
+                    if(returnResult){
+                        System.out.println("ThankYou for returning the book. Hope you enjoyed it!");
+                    }
+                    else{
+                        System.out.println("Book has already been returned! ThankYou.");
+                    }
+                    break;
                 case 6:
                     System.out.println("Thank you for coming!.");
                     return;
